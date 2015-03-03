@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>Welcome to URL Shortener</h1>
+
+
+<form action="/urls" method="post">
+  <input type="text" name="user_input">
+  <input type="submit" value="Shorten it">
+</form>
+
+<% if @shorten_url %>
+  <h2>Your shortened URL is .. </h2>
+    <a href= "<%= @shorten_url %>">http://localhost:9393<%= @shorten_url %></a>
+  </div>
+<% end %>
+</br>
+<hr>
+</br>
+
+<% Url.all.each do |url| %>
+<p>
+    <a href="<%=  url.shorten_url %>"><%=  url.shorten_url %></a>
+  </br>
+  <p>Clicked: <%= url.counter %></p>
+
+    <p> for <%=  url.url_address %></p>
+  </p>
+
+
+<% end %>
